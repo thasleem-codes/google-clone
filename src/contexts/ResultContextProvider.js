@@ -13,6 +13,12 @@ export const ResultContextProvider = ({ children }) => {
   const getResult = async (type) => {
     setIsLoding(true);
 
-    const response = await fetch(`${baseUrl}${type}`);
+    const response = await fetch(`${baseUrl}${type}`, {
+      method: "Get",
+      headers: {
+        "x-rapidapi-host": "google-search3.p.rapidapi.com",
+        "x-rapidapi-key": process.env.REACT_APP_API_KEY,
+      },
+    });
   };
 };

@@ -16,10 +16,13 @@ export const ResultContextProvider = ({ children }) => {
     const response = await fetch(`${baseUrl}${type}`, {
       method: "Get",
       headers: {
+        "x-user-agent": "desktop",
         "x-rapidapi-host": "google-search3.p.rapidapi.com",
         "x-rapidapi-key": process.env.REACT_APP_API_KEY,
       },
-      //This is only for git update
+     
     });
+    const data = await response.json();
+    console.log(data);
   };
 };
